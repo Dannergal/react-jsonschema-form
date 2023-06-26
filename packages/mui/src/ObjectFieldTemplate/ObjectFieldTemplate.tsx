@@ -47,6 +47,8 @@ export default function ObjectFieldTemplate<
   const {
     ButtonTemplates: { AddButton },
   } = registry.templates;
+  //console.log(uiSchema)
+  //console.log("propiedades" ,properties)
   return (
     <>
       {title && (
@@ -75,7 +77,12 @@ export default function ObjectFieldTemplate<
           element.hidden ? (
             element.content
           ) : (
-            <Grid item={true} xs={12} key={index} style={{ marginBottom: '10px' }}>
+            <Grid
+              item={true}
+              xs={uiSchema![element.name]['ui:fieldFlexWidth'] || 12}
+              key={index}
+              style={{ marginBottom: '10px' }}
+            >
               {element.content}
             </Grid>
           )
